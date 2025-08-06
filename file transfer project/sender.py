@@ -10,9 +10,9 @@ file_size = os.path.getsize("image.png")
 client.send("received_image.png".encode()) # send image/filename
 client.send(str(file_size).encode()) # send image size
 
-data = file.read() # read file. what did you think lol
+data = file.read()
 client.sendall(data) # send all data
-client.sendall(b"<ENDPOINT>") # ending tag to indicate finish
+client.send(b"<ENDPOINT>") # ending tag to indicate finish
 
 file.close()
 client.close()
