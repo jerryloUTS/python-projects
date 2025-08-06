@@ -12,7 +12,8 @@ client.send(str(file_size).encode()) # send image size
 
 data = file.read()
 client.sendall(data) # send all data
-client.send(b"<ENDPOINT>") # ending tag to indicate finish
+client.sendall(b"<ENDPOINT>") # ending tag to indicate finish
 
 file.close()
 client.close()
+
